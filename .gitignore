@@ -1,11 +1,25 @@
-*.iml
-.gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
+# OSX Files #
+#############
 .DS_Store
-/build
-/captures
+
+# Local configuration file (sdk path, etc) #
+############################################
+/local.properties
+
+# Android Studio #
+##################
+.idea
+.gradle
+*.iml
+
+# External native build folder generated in Android Studio 2.2 and later #
+########################################################################################
 .externalNativeBuild
-app/build/
-Etch/build/
+
+# Build Directories #
+#####################
+build
+/*/*/build
+
+# Other #
+#########
