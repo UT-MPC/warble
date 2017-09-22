@@ -25,8 +25,11 @@ public class BLEActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ble);
+        if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M){
+            //use checkSelfPermission()
+            this.requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 112);
+        }
 
-        this.requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 112);
 
         final List<DeviceReq> reqs = new ArrayList<DeviceReq>();
         Location currLoc = new Location(0,0);
@@ -41,7 +44,7 @@ public class BLEActivity extends AppCompatActivity {
                 try {
                     Light light = snapshot.retrieve(Light.class, reqs);
                     light.off();
-                } catch (DeviceUnavailableException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
